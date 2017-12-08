@@ -1,0 +1,8 @@
+﻿In this analysis, the stability selection which is a wrapper method is used to rank the features in terms of their predictive power. In this method, the features ranking is implemented over several iterations and in each iteration a subset of randomly selected samples (observations) and features are used. In this analysis, we use the regularized Logistic Regression algorithm to train a classifier in each iteration and then the features are ranked based on their weights (the higher the weight a feature has, the higher its rank is).
+
+After completing all the iterations, the features are ranked based on the percentage of times that they are selected as the most important feature. This way, the features that are selected as the most important feature in almost all iterations have scores close to 100% and the least important features have scores close to 0%. By randomly selecting features in each iteration, in some iterations, the strongest features will be absent and other strong features will have the chance to be selected as the strongest feature, so in the end all the features will be ranked properly according to the percentage of times they appear as the strongest feature.
+
+The first advantage of this method is that the features rankings drop smoothly, and hence this ranking can be used for interpretation. Another advantage is that the result of this method is stable meaning that if we repeat this algorithm, the result of the new implementation would be close to the results of the previous implementations, which again gives us the power to interpret the features importance.
+
+Here, the stability selection is implemented using RandomizedLogisticRegression class available in Scikit-Learn package.
+ 
